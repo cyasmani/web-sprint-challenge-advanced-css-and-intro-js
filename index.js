@@ -208,9 +208,15 @@ const artists = [
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
 
+console.log(artists[0].name);
+console.log(artists[2].bio);
+
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+
+artists[9].name = "Vincent Van Gogh";
+console.log(artists[9].name);
 
 
 
@@ -223,19 +229,44 @@ const artists = [
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(id, name) {
-    /* code here */
+    
+  name = artists[id].name;
+  return `The artist at index ${id} is ${name}.`
+
   }
   
+  console.log(getArtistByIndex(3))
   /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born the 20th century (1900-2000) */
 
-function get20s(/* Code here */){
+function get20s(artists){
+  let arr = [];
+  for(var i = 0; i < artists.length; i++){
+    let oldies = parseInt(artists[i].years);
+    
 
-  /* Code here */
+    
+    if(oldies < 2000 && oldies > 1900) {
+      
+    
+      arr.push(artists[i].name)
+      
+    }
+
+  }
+
+  return arr;
+
+  
+
+  
 
 }
+
+console.log(get20s(artists));
+
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -248,11 +279,13 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+function removeArtist(artists, index) {
+    
+    let removed = artists.splice(index, 1)
+    console.log(artists.length)
   }
   
-  /**
+  removeArtist(artists,0);
 
 
 
@@ -269,11 +302,24 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should console.log() the new array with information added"*/
 
-function addArtist(/* Code here */){
+function addArtist(artists){
 
-    /* Code here */
+    let myself = {
+
+      id: 25,
+      name: "Yasmani Castaneda", 
+      years: "1995 - 2020",
+      genre: "Web Design", 
+      nationality: "Cuban",
+      bio: "They call be Castaneda...Yasmani Castaneda" 
+    }
+
+    artists.push(myself);
+    return artists;
 
   }
+
+  console.log(addArtist(artists))
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -283,11 +329,26 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(artists){
+  let crabs = [];
+  for(var i=0 ; i < artists.length; i++){
 
-  /* Code here */
+    if(artists[i].paintings > 100){
+
+      
+      crabs.push(artists[i].name)
+      
+      
+      
+
+
+    }
+  }
+  return crabs;
 
 }
+
+console.log(lotsOfArt(artists))
 
 
 
@@ -323,11 +384,38 @@ function getHTML(/* Code here */){
 
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
 
-function randomize(/* Code here */){
+function randomize(artists){
 
-    /* Code here */
+  var rndart = artists.length, artstnumbr, index;
+
+  while(rndart > 0) {
+
+    index = Math.floor(Math.random() * rndart);
+
+    rndart--;
+
+    artstnumbr = artists[rndart];
+    artists[rndart] = artists[index];
+    artists[index] = artstnumbr;
+  }
+
+  return artists; 
+
+
+
+    /* Code here */ 
+    
 
   }
 
+  console.log(randomize(artists));
+
 
  /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+
+
+ const filtermostpaintings = artists.filter((artists) => {
+   return artists.paintings >= 100;
+ });
+
+ console.log(filtermostpaintings);

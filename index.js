@@ -386,17 +386,17 @@ function getHTML(/* Code here */){
 
 function randomize(artists){
 
-  var ctr = artists.length, temp, index;
+  var rndart = artists.length, artstnumbr, index;
 
-  while(ctr > 0) {
+  while(rndart > 0) {
 
-    index = Math.floor(Math.random() * ctr);
+    index = Math.floor(Math.random() * rndart);
 
-    ctr--;
+    rndart--;
 
-    temp = artists[ctr];
-    artists[ctr] = artists[index];
-    artists[index] = temp;
+    artstnumbr = artists[rndart];
+    artists[rndart] = artists[index];
+    artists[index] = artstnumbr;
   }
 
   return artists; 

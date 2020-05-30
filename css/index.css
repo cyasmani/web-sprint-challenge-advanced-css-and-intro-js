@@ -20,6 +20,78 @@ font: inherit;
 vertical-align: baseline;  
 }
 /*GENERAL STYLES*/
+@keyframes coloring{
+
+    25%{
+        color: purple;
+
+    }
+
+    50%{
+        color: blue;
+        
+    }
+
+    75%{
+        color: pink;
+        
+    }
+
+    100%{
+        color: red;
+        
+    }
+
+}
+
+@keyframes navcolor{
+
+    25%{
+        color: yellow;
+
+    }
+
+    50%{
+        color: green;
+        
+    }
+
+    75%{
+        color: brown;
+        
+    }
+
+    100%{
+        color: silver;
+        
+    }
+
+}
+
+@keyframes imgradius {
+
+    25%{
+        border-radius: 10%;
+
+    }
+
+    50%{
+        border-radius: 30%;;
+        
+    }
+
+    75%{
+        border-radius: 50%;;
+        
+    }
+
+    100%{
+        border-radius: 70%;;
+        
+    }
+
+
+}
 html{
     font-size:62.5%;
 }
@@ -36,6 +108,7 @@ h1, p, .name, .bio {
 h1{
     font-size:6rem;
     margin:0;
+    animation: coloring 4s ;
 }
 a {	
     text-decoration: none;	
@@ -43,7 +116,8 @@ a {
     font-size:2.5rem;	
 }	
 a:hover {	
-    font-weight: bold;	
+    font-weight: bold;
+    animation: navcolor 4s;	
 }	
 .name{	
     font-size: 150%;	
@@ -58,6 +132,7 @@ img {
     margin-left: auto;	
     margin-right: auto;	
     border-radius: 2%;	
+    animation: imgradius 4s ;
 }	
 img:hover {	
     opacity: 80%;	
